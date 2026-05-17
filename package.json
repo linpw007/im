@@ -7,13 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "astro dev",
     "build": "astro build",
-    "prview": "astro preview"
+    "prview": "astro preview",
+    "generate-types": "wrangler types"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@astrojs/cloudflare": "^13.5.1",
     "astro": "^6.3.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.92.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
