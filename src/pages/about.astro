@@ -1,29 +1,64 @@
 ---
+import '../styles/global.css';
+
+const pageTitle = "About Me";
+
+const identity = {
+  name: "Lin",
+  country: "China",
+  hobbies: ["reading", "writing", "making money"],
+};
+
+const skills = ["CISSP", "ISO27001 leader internal auditor"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "crimson";
 ---
 
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type ="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content = {Astro.generator} >
-    <title>About Me</title>
+    <title>{ pageTitle }</title>
+    <style define:vars={{skillColor}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <a href="/">首页</a>
     <a href="/blog/">博客</a>
     <a href="/about/">关于</a>
 
-    <h1>About me</h1>
+    <h1>{ pageTitle }</h1>
     <h2>...and this new page.</h2>
 
-    <p>Hello, I'm a developer passionate about creating amazing web experiences.</p>
-    <p>Feel free to explore my website and get in touch!</p>
+    <p>Hello, I'm { identity.name }, from { identity.country }, passionate about creating something amazing.</p>
+    <p>here are something about me:</p>
+    <ul>
+      <li>Hobbies: { identity.hobbies[0] }, { identity.hobbies[1] } and { identity.hobbies[2] }</li>
+      <li>Skills: { skills[0] }, { skills[1] } and more</li>
+    </ul>
+
+    <p>My skills:</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{ skill }</li>)}
+    </ul>
+
+    <p>以下是条件渲染HTML的一些例子的浏览器展示结果：</p>
+      <ul>
+        <li>{happy && <p>我非常乐意学习 Astro！</p>}</li> 
+        <li>{finished && <p>我完成了这节教程！</p>}</li>
+        <li>{goal === 3 ? <p>我的目标是在{ goal }天内完成。</p> : <p>我的目标不是{ goal }天。</p>}</li>
+      </ul>      
   </body>
 </html>
-
-<style>
-  h1 {
-    color: orange;
-  }
-</style>

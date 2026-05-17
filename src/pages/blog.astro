@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+
+const pageTitle = "posts";
 ---
 
 <html lang="zh-cn">
@@ -7,19 +10,20 @@
     <link rel="icon" type ="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content = {Astro.generator} >
-    <title>My Posts</title>
+    <title>{ pageTitle }</title>
   </head>
   <body>
     <a href="/">首页</a>
     <a href="/blog/">博客</a>
     <a href="/about/">关于</a>
 
-    <h1>Hi,welcome...</h1>
+    <h1>Hi,welcome...这是我的 Astro 学习博客, here you can see my { pageTitle }</h1>
+
+    <p>以下是我的学习笔记：</p>
+    <ul>
+      <li><a href="/posts/post-1/">文章1 post-1.md</a></li>
+      <li><a href="/posts/post-2/">文章2 post-2.md</a></li>
+      <li><a href="/posts/post-3/">文章3 post-3.md</a></li>
+    </ul>
   </body>
 </html>
-
-<style>
-  h1 {
-    color: orange;
-  }
-</style>
